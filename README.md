@@ -22,7 +22,8 @@ tpl文件可以自己编写，对于商户模板文件可以直接下载tpl文�
        济南	济南恒隆广场	                        济南市历下区泉城路188号                    (0531)55638166	   10:00-22:00	http://www.omegawatches.cn/cn/stores/countries/stores-details?country=446&city=%E6%B5%8E%E5%8D%97&storetype=1&sellwatches=1
        青岛	青岛阳光百货                      	青岛市香港中路38号	                   (0532)86677535	   10:00-22:00	http://www.omegawatches.cn/cn/stores/countries/stores-details?country=446&city=%E9%9D%92%E5%B2%9B&storetype=1&sellwatches=1
 
-tpl配置为：
+  tpl配置为：
+  
   module.exports = [
 		{
 			text : '请选择*',
@@ -112,3 +113,101 @@ tpl配置为：
 	    ]
 	}
 	填充tpl模板文件
+	
+	生成的数据为：
+	
+	module.exports = [
+		{
+			text : '请选择*',
+			value : 'null',
+			children : [ {
+				text : '请选择*',
+				value : 'null'
+			} ]
+		},
+		{
+			text : '北京',
+			value : '北京',
+			children : [
+					{
+						text : '北京庄胜崇光百货商场(英皇钟表珠宝)',
+						value : '北京庄胜崇光百货商场(英皇钟表珠宝)',
+						children : [ {
+							title_left : '查找我们位于中国的专卖店',
+							title_right : '北京庄胜崇光百货商场(英皇钟表珠宝)',
+							enable_bmap : false,
+							addr : '北京宣武门外大街8号庄胜崇光百货新馆一层',
+							tel : '(010)63105191',
+							opening : '10:00-22:00',
+							url : 'http://www.omegawatches.cn/cn/stores/countries/stores-details?country=446&amp;city=%E5%8C%97%E4%BA%AC&amp;storetype=1&amp;sellwatches=1'
+						} ]
+					},
+					{
+						text : '北京当代商城',
+						value : '北京当代商城',
+						children : [ {
+							title_left : '查找我们位于中国的专卖店',
+							title_right : '北京当代商城',
+							enable_bmap : false,
+							addr : '北京市海淀区中关村大街40号',
+							tel : '(010)62696120',
+							opening : '10:00-22:00',
+							url : 'http://www.omegawatches.cn/cn/stores/countries/stores-details?country=446&amp;city=%E5%8C%97%E4%BA%AC&amp;storetype=1&amp;sellwatches=1'
+						} ]
+					},
+					{
+						text : '北京燕莎友谊商城金源店',
+						value : '北京燕莎友谊商城金源店',
+						children : [ {
+							title_left : '查找我们位于中国的专卖店',
+							title_right : '北京燕莎友谊商城金源店',
+							enable_bmap : false,
+							addr : '北京市海淀区远大路1号东侧',
+							tel : '(010)88873971',
+							opening : '10:00-21:00',
+							url : 'http://www.omegawatches.cn/cn/stores/countries/stores-details?country=446&amp;city=%E5%8C%97%E4%BA%AC&amp;storetype=1&amp;sellwatches=1'
+						} ]
+					},
+					{
+						text : '北京双安商场',
+						value : '北京双安商场',
+						children : [ {
+							title_left : '查找我们位于中国的专卖店',
+							title_right : '北京双安商场',
+							enable_bmap : false,
+							addr : '北京市海淀区北三环西路38号',
+							tel : '(010)62138820',
+							opening : '10:00-22:00',
+							url : 'http://www.omegawatches.cn/cn/stores/countries/stores-details?country=446&amp;city=%E5%8C%97%E4%BA%AC&amp;storetype=1&amp;sellwatches=1'
+						} ]
+					},
+					{
+						text : '北京翠微大厦',
+						value : '北京翠微大厦',
+						children : [ {
+							title_left : '查找我们位于中国的专卖店',
+							title_right : '北京翠微大厦',
+							enable_bmap : false,
+							addr : '北京市海淀区翠微大厦一楼',
+							tel : '(010)68168185',
+							opening : '10:00-22:00',
+							url : 'http://www.omegawatches.cn/cn/stores/countries/stores-details?country=446&amp;city=%E5%8C%97%E4%BA%AC&amp;storetype=1&amp;sellwatches=1'
+						} ]
+					},
+					{
+						text : '北京赛特购物中心',
+						value : '北京赛特购物中心',
+						children : [ {
+							title_left : '查找我们位于中国的专卖店',
+							title_right : '北京赛特购物中心',
+							enable_bmap : false,
+							addr : '北京市朝阳区建国门外大街22号',
+							tel : '(010)65257366',
+							opening : '10:00-22:00',
+							url : 'http://www.omegawatches.cn/cn/stores/countries/stores-details?country=446&amp;city=%E5%8C%97%E4%BA%AC&amp;storetype=1&amp;sellwatches=1'
+						} ]
+					},
+					{
+						text : '北京市百货大楼',
+						value : '北京市百货大楼',
+						.......
