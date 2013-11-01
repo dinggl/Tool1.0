@@ -56,7 +56,7 @@ public class Excel2Js extends JFrame implements ActionListener {
 			excel.readExcelFromModel(excelValue, sheetValue, keyValue);
 			File save = excel.save2File(tplValue);
 			if(save != null)
-			JOptionPane.showMessageDialog(this, "转换完成，保存文件路径为：" + save.getAbsolutePath());
+			JOptionPane.showMessageDialog(this, "请校验转换量:"+ excel.getCount()+"，保存文件路径为：" + save.getAbsolutePath());
 		}  catch (Exception ee) {
 			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(this, "转换失败：" + ee.getMessage());

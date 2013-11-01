@@ -1,3 +1,4 @@
+define(function(require, exports, module){
 module.exports = [
 		{
 			text : '请选择*',
@@ -23,7 +24,7 @@ module.exports = [
 							addr : '{{address}}',
 							tel : '{{tel}}',
 							opening : '{{opening}}',
-							url : '{{url}}'
+							rcv_url : '{{url}}'
 						} ]
 					},
 			{{/list}}
@@ -31,3 +32,4 @@ module.exports = [
 	},
 	{{/map}}
 	];
+})

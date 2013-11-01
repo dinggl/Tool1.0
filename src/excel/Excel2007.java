@@ -33,9 +33,11 @@ import com.samskivert.mustache.Mustache;
  * 下午4:30 To change this template use File | Settings | File Templates.
  */
 public class Excel2007 {
+	private int count;
 	Map<String, List<Map<String, Object>>> mlm = null;
 	public List<Object> fillKeys(XSSFRow row) {
 		List<Object> list = new ArrayList<Object>();
+		boolean valid = false;
 		for (Iterator<Cell> j = row.cellIterator(); j.hasNext();) {
 			// Cell cell = j.next();
 			XSSFCell cell = (XSSFCell) j.next();
@@ -43,16 +45,22 @@ public class Excel2007 {
 				continue;
 			Object key = getCellValue(cell);
 			if (key == null)
+			{
 				continue;
+			}
+			else {
+				valid = true;
+			}
 			list.add(key);
 		}
-		return list;
+		return valid?list:null;
 	}
 
 	// 读excel文档
 	public void readExcelFromModel(String path, String sheetName, String key)
 			throws IllegalAccessException, InstantiationException, IOException {
 		XSSFSheet sheet = getSheet(path, sheetName);
+		count = 0;
 		if (sheet != null) {
 			List<Object> keys = null;
 			Map<String, List<List<Object>>> map = new HashMap<String, List<List<Object>>>();
@@ -110,6 +118,8 @@ public class Excel2007 {
 			int keyIndex) {
 		// TODO Auto-generated method stub
 		List<Object> list = fillKeys(row);
+		if(list == null) return;
+		else count++;
 		String key = list.get(keyIndex).toString();
 		if (map.containsKey(key)) {
 			map.get(key).add(list);
@@ -166,7 +176,7 @@ public class Excel2007 {
 		Object result = null;
 		switch (cell.getCellType()) {
 		case Cell.CELL_TYPE_STRING:
-			result = cell.getStringCellValue().trim();
+			result = cell.getStringCellValue().trim().replaceAll("\n", " ");
 			break;
 		case Cell.CELL_TYPE_NUMERIC:
 			if (DateUtil.isCellInternalDateFormatted(cell))
@@ -184,7 +194,7 @@ public class Excel2007 {
 			result = cell.getBooleanCellValue();
 			break;
 		default:
-			result = "NULL";
+			result = null;
 			break;
 		}
 		return result;
@@ -271,5 +281,13 @@ public class Excel2007 {
 			return data;
 		}
 		return null;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 }
