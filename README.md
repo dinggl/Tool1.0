@@ -8,7 +8,7 @@
 
 	注意：tpl文件可以自己编写，对于商户模板文件可以直接下载tpl文件，tpl文件遵循mustache语法，Tool1.0.jar会将多余的逗号去掉。
 	填写完tpl路径与excel文件路径，设置sheet的名字以及key，点击convert变回生成目的数据。由于tpl中的{{param}}是与excel文件中的列名一一对应的，所以我们需要预先处理excel文件，添加列名
-	其中tpl中的{{param}}与excel中的param一一对应。
+	其中tpl中的{{param}}与excel中的param一一对应。并且请注意tpl文件应该是utf-8编码，否则会出现乱码。
 
 	
   举例（参照CFS  FFS store list.xlsx）：
