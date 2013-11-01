@@ -1,3 +1,5 @@
+最近需要给select填充数据，而数据存储在excel文件中，由于数据量很大，手工填写比较费时费力，鉴于还没有可用的工具，写了一个供大家使用。
+
 通过excel2007或以上版本提供的数据生成商户数据，下载Tool1.0.jar 设置环境变量JAVA_TOOL_OPTIONS， 变量值为：-Dfile.encoding=UTF-8，否则出现乱码
 tpl文件可以自己编写，对于商户模板文件可以直接下载tpl文件，tpl文件遵循mustache语法，Tool1.0.jar会将多余的逗号去掉。
 填写完tpl路径与excel文件路径，设置sheet的名字以及key，点击convert变回生成目的数据。
