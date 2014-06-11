@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -170,6 +171,13 @@ public class Excel2007 {
 	private XSSFSheet getSheet(String path, String sheetName) {
 		return this.getXSSFWorkBook(path).getSheet(sheetName);
 	}
+	public static String doubleToString(double d)  
+    {  
+        String i = DecimalFormat.getInstance().format(d);  
+        String result = i.replaceAll(",", "");  
+        return result;  
+  
+    }  
 
 	// 判断Cell单元格的类型。
 	public static Object getCellValue(Cell cell) {
@@ -183,6 +191,8 @@ public class Excel2007 {
 				result = cell.getDateCellValue();
 			else
 				result = cell.getNumericCellValue();
+			//科学技术法-->String
+			result = doubleToString((double)result);
 			break;
 		case Cell.CELL_TYPE_FORMULA:
 			result = cell.getCellFormula();
