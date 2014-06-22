@@ -191,7 +191,7 @@ public class Excel2007 {
 				result = cell.getDateCellValue();
 			else
 				result = cell.getNumericCellValue();
-			//科学技术法-->String
+			//科学计数法-->String
 			result = doubleToString((double)result);
 			break;
 		case Cell.CELL_TYPE_FORMULA:
@@ -265,10 +265,11 @@ public class Excel2007 {
 		while ((line = br.readLine()) != null) {
 			sw.write(line);
 		}
+		br.close();
 		String templete = sw.toString();
-
 		String result = Mustache.compiler().compile(templete).execute(mlm);
 		result = result.replaceAll("}\\s*,\\s*]", "}]");
+		result = result.replaceAll("\\{", "{\n").replaceAll(",", ",\n").replaceAll("\\s\\}", "\r\n\t}");
 		File data = new File(System.currentTimeMillis()+"data.js");
 		if (!data.exists()) {
 			FileOutputStream fos = null;
