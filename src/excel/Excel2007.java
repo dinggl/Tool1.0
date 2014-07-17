@@ -52,6 +52,7 @@ public class Excel2007 {
 			else {
 				valid = true;
 			}
+			
 			list.add(key);
 		}
 		return valid?list:null;
@@ -263,13 +264,12 @@ public class Excel2007 {
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		String line;
 		while ((line = br.readLine()) != null) {
-			sw.write(line);
+			sw.write(line + "\n");
 		}
 		br.close();
-		String templete = sw.toString();
-		String result = Mustache.compiler().compile(templete).execute(mlm);
-		result = result.replaceAll("}\\s*,\\s*]", "}]");
-		result = result.replaceAll("\\{", "{\n").replaceAll(",", ",\n").replaceAll("\\s\\}", "\r\n\t}");
+		String template = sw.toString();
+		String result = Mustache.compiler().compile(template).execute(mlm);
+		
 		File data = new File(System.currentTimeMillis()+"data.js");
 		if (!data.exists()) {
 			FileOutputStream fos = null;
@@ -293,6 +293,8 @@ public class Excel2007 {
 		}
 		return null;
 	}
+
+	
 
 	public int getCount() {
 		return count;
