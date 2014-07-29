@@ -119,8 +119,9 @@ public class Template
     protected Object getValueIn (Object data, String name, int line)
     {
         if (data == null) {
-            throw new NullPointerException(
-                "Null context for variable '" + name + "' on line " + line);
+            /*throw new NullPointerException(
+                "Null context for variable '" + name + "' on line " + line);*/
+            System.out.println("Null context for variable '" + name + "' on line " + line);
         }
 
         Key key = new Key(data.getClass(), name);

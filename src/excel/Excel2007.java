@@ -269,7 +269,7 @@ public class Excel2007 {
 		br.close();
 		String template = sw.toString();
 		String result = Mustache.compiler().compile(template).execute(mlm);
-		
+		result = result.replaceAll("}\\s*,\\s*]", "}\n]");
 		File data = new File(System.currentTimeMillis()+"data.js");
 		if (!data.exists()) {
 			FileOutputStream fos = null;
